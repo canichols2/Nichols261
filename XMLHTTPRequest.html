@@ -1,0 +1,73 @@
+<!doctype HTML>
+<head>
+    <script>
+//This is the actual request
+        function grabJsonFile()
+        {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "JSONTestFile.txt"
+            var Arr;
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var myArr = JSON.parse(xmlhttp.responseText);
+                    displayArray(myArr) //Calls the display function
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        //lets me view the request worked 
+        function displayArray(myArr){
+            document.getElementById("result1").innerHTML = myArr;
+            document.getElementById("result2").innerHTML = myArr[0].FirstName
+            document.getElementById("result3").innerHTML = myArr[0].LastName
+            document.getElementById("result4").innerHTML = myArr[1].FirstName
+        }
+        
+//Just to test JSON and make sure things for JSON work
+//These let you create from text, and convert to text.
+        var ResponseCenter = [
+            {"FirstName":"Cody", "LastName":"Nichols"},
+            {"FirstName":"Arden", "LastName":"Shackelford"},
+            {"FirstName":"Noble", "LastName":"Hamblin"},
+            {"FirstName":"Wes", "LastName":"Clark"},
+            {"FirstName":"Ryan", "LastName":"Jewsbury"},
+        ]
+        
+        //Converts the array into string value
+        var myJsonSring = JSON.stringify(ResponseCenter);
+        
+        //Coverts that string into an Object
+        var myJsonOpbject = JSON.parse(myJsonSring);
+        
+        function writeToDiv() {
+            document.getElementById("result1").innerHTML = myJsonSring;
+            document.getElementById("result2").innerHTML = myJsonOpbject;
+            document.getElementById("result3").innerHTML = ""
+            document.getElementById("result4").innerHTML = ""
+        }
+        
+        
+    </script>
+</head>
+<body>
+    <h1>This isn't going to work</h1>
+    <h2>Results:<br></h2>
+    <button onclick=grabJsonFile()>Grab JSON File</button>
+    <button onclick=writeToDiv()>Write</button>
+    <div id=result1></div><br>
+    <div id=result2></div><br>
+    <div id=result3></div><br>
+    <div id=result4></div><br>
+    <div id=result5></div><br>
+    <div id=result6></div><br>
+    
+    <br>
+    <br>
+    <br>
+    <div>
+    
+    
+    </div>
+</body>
