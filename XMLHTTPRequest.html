@@ -4,8 +4,11 @@
 //This is the actual request
         function grabJsonFile()
         {
+            var zipCode = document.getElementById("insert").value
+            var country = "us"
             var xmlhttp = new XMLHttpRequest();
-            var url = "JSONTestFile.txt"
+            var url = "api.openweathermap.org/data/2.5/weather?zip=" + zipCode + "," + country + "&appid=cef5896628806f53866f88b3bdb82c05"
+//            var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
             var Arr;
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -15,20 +18,30 @@
             };
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+            Arr = xmlhttp.responseText
+            document.getElementById("result6").innerHTML = Arr
         }
         
         //lets me view the request worked 
         function displayArray(myArr){
-            document.getElementById("result1").innerHTML = myArr;
-            document.getElementById("result2").innerHTML = myArr[0].FirstName
-            document.getElementById("result3").innerHTML = myArr[0].LastName
-            document.getElementById("result4").innerHTML = myArr[1].FirstName
+            document.getElementById("result1h").innerHTML = "Location:";
+            document.getElementById("result1").innerHTML = "lattitude: " + myArr.coord.lon + "<br>" + "Longitude: " + myArr.coord.lat
+            document.getElementById("result2h").innerHTML = myArr[0].LastName
+            document.getElementById("result2").innerHTML = myArr[1].FirstName
         }
+function clearPage(){
+    for(i = 1; i < 4; i++){
+        var headerVar = "result" + i + "h"
+        var headerTextVar = "result" + i
+    document.getElementById(headerVar).innerHTML = ""
+    document.getElementById(headerTextVar).innerHTML = ""
+    }
+}
         
 //Just to test JSON and make sure things for JSON work
 //These let you create from text, and convert to text.
         var ResponseCenter = [
-            {"FirstName":"Cody", "LastName":"Nichols"},
+            {"FirstName":"Videos", "LastName":"Nichols"},
             {"FirstName":"Arden", "LastName":"Shackelford"},
             {"FirstName":"Noble", "LastName":"Hamblin"},
             {"FirstName":"Wes", "LastName":"Clark"},
@@ -54,15 +67,30 @@
 <body>
     <h1>This isn't going to work</h1>
     <h2>Results:<br></h2>
+    <textarea id="insert">Zip Code</textarea>
     <button onclick=grabJsonFile()>Grab JSON File</button>
-    <button onclick=writeToDiv()>Write</button>
-    <div id=result1></div><br>
-    <div id=result2></div><br>
-    <div id=result3></div><br>
-    <div id=result4></div><br>
-    <div id=result5></div><br>
-    <div id=result6></div><br>
     
+    
+    
+    <button onclick=writeToDiv()>Write</button>
+    <button onclick=clearPage()>Clear</button>
+    <h1  id=result1h></h1>
+    <div id=result1></div><br>
+    
+    <h1  id=result2h></h1>
+    <div id=result2></div><br>
+    
+    <h1  id=result3h></h1>
+    <div id=result3></div><br>
+    
+    <h1  id=result4h></h1>
+    <div id=result4></div><br>
+    
+    <h1  id=result5h></h1>
+    <div id=result5></div><br>
+    
+    <h1  id=result6h></h1>
+    <div id=result6></div><br>
     <br>
     <br>
     <br>
