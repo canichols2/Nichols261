@@ -25,7 +25,7 @@ function setSpinEl(el) {
 //    elem.style.animationName = "";
 }
 
-var boxTemp = document.getElementById(box);
+var boxTemp = document.getElementById("box");
 
 boxTemp.addEventListener("animationstart",function(e){
     console.log("AnimationStarted")
