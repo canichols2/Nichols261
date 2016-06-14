@@ -102,16 +102,15 @@ function teacher(){
 function teacherA(){
     teacherB.call(this)
 }
-
 function teacherB(){
-    teaacherC.call(this)
+    teacherC.call(this)
 }
 function teacherC(){
     teacherA().call(this)
 }
 
 
-
+var loopVar = new teacherA();  //Circular Inheritence, it loops until the error "Maximum Call Stack Size Exceeded" which is however large the broswer desides to make it.
 
 
 

@@ -16,7 +16,7 @@ function person(name, age, sex, house){
 var cody = new person("Cody Nichols",24,"M","Quincy")
 console.log(cody);
 console.log();
-console.log(JSON.stringify(cody)) //apparently stringifying an object doesn't bringw with it the vunctions in this case "eat()"
+console.log(JSON.stringify(cody)) //apparently stringifying an object doesn't bring with it the functions in this case "eat()"
 localStorage.codyAsObject = cody;
 localStorage.codyAsJSON = JSON.stringify(cody);
 console.log("CodyAsObject:")
@@ -32,7 +32,7 @@ console.log("JSON.Stringify JSON:")
 console.log(JSON.stringify(localStorage.codyAsJSON))
 console.log();
 console.log("JSON.parse Object:")
-//console.log(JSON.parse(localStorage.codyAsObject))
+//console.log(JSON.parse(localStorage.codyAsObject)) //Removed because it broke the code to the point where it wouldn't run.
 console.log();
 console.log("JSON.parse JSON:")
 console.log(JSON.parse(localStorage.codyAsJSON))
