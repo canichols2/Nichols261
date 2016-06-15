@@ -1,0 +1,48 @@
+<!doctype HTML>
+<head>
+    <script src="transitions.js"></script>
+    <link rel='stylesheet' type="text/css" href=transitions.css>
+</head>
+
+<body id="body" onload="resetAnimation()">
+    <h1>Results</h1>
+    <p id="result"></p>
+    <button onclick="fadeColor('box', 'blue')">fade to blue</button>
+<!--    Nasty Pass. All the things that go into this 
+            function that i tried... didn't work until this.-->
+<!--    The box "ID" needs to be in quotes (Single quotes work just fine)-->
+    <button onclick="fadeColor(box, 'blue')">Box without quotes</button>
+<!--    The whole function call needs to be in quotes-->
+    <button onclick=fadeColor('box', 'blue')>function No Quotes</button>
+    <button onclick="fadeColor('box', blue)">BlueNoQuotes</button>
+    <button onclick="setSpinEl('box')">MakeItSpin</button>
+    <button onclick="animNull('box')">Clear</button>
+    
+    <div>
+        <h1>RealBeginningOfPage</h1>
+        <p>this is some text I wanted to display for other users to see. I don't care much what it looks like now, but I like it.</p>
+        <button onclick="classSelect('test1','purple')">Class Select Button</button>
+        <div class=test1>This is a test div to see what happens when calling a function using a class instead of element id</div>
+        
+        
+        
+    </div>
+    <div id='div2'>
+        <h2>This is a subHeadder for the seccond one</h2>
+        <p id="box">We really don't care about this one. I won't even write much.</p>
+    </div>
+    
+    <div class="blue" id="colorSwap">This Started As Blue!</div>
+
+    <button onclick="switchColor()">switchColors</button>
+
+<!--Good website for help:
+https://developers.google.com/web/fundamentals/design-and-ui/animations/css-vs-javascript?hl=en
+-->
+    
+
+</body>
+
+
+
+

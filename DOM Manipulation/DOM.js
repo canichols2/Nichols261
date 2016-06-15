@@ -16,6 +16,7 @@ newDiv.insertBefore(newH1, newP);
 var body1 = document.getElementById("mainBody");
 
 console.log(document);
+console.log(document.body);
 console.log(document.getElementById("mainBody"));
 console.log(body1);
 body1.appendChild(newDiv);
